@@ -1,0 +1,19 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+form {
+    margin: 128px auto;
+    width: 100%;
+    max-width: 512px;
+}
+
+label {
+    display: block;
+    margin-bottom: 24px;
+}
+
+input[type="url"] {
+    width: 100%;
+}

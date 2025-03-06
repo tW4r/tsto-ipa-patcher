@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSTO IPA Patcher</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <script src="/script.js"></script>
+    <form onsubmit="return onFormSubmit(event)" id="patch-form">
+        <h1>TSTO IPA Patcher</h1>
+        <p>URLs must be the same length as the original URLs</p>
+        <p>If URL is too short it can be padded with `./` and `/`</p>
+        <label>
+            Original IPA file
+            <input type="file" name="file" accept=".ipa,application/x-ios-app" required>
+        </label>
+        <label>
+            Server URL
+            <input type="url" name="server-url" required>
+        </label>
+        <label >
+            Syn-dir URL
+            <input type="url" name="syn-dir-url" required>
+        </label>
+        <label>
+            DLC URL <small>(optional)</small>
+            <input type="url" name="dlc-url" >
+        </label>
+        <button type="submit">Patch</button>
+    </form>
+    <script>
+        const form = document.getElementById('patch-form');
+        for (const name in ORIGINAL_VALUES) {
+            const value = ORIGINAL_VALUES[name];
+            form.elements[name].placeholder = value;
+            form.elements[name].maxLength = value.length;
+            form.elements[name].minLength = value.length;
+        }
+    </script>
+</body>
+</html>
